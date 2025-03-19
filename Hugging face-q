@@ -1,0 +1,51 @@
+Technology Team – Sprint Planning & Strategy Meeting Minutes
+
+Date: [Insert Date]
+Time: [Insert Time]
+Facilitator: [Your Name] (Director, Technology)
+Attendees: Mark, Carlo, Kevin, Young, and Technology Team Members
+
+⸻
+
+1. Meeting Objective
+
+The objective of this meeting was to align on the incremental release strategy, data access requirements, UI execution flow, and risk mitigation measures to ensure a structured and efficient rollout of upcoming releases.
+
+⸻
+
+2. Key Discussion Points
+
+Incremental Release Strategy
+	•	Phase 1 (April Release): Core functionality focused on data refresh.
+	•	Phase 2 & 3 (May & June Releases): Integration of additional data sources and further system enhancements.
+	•	Defined milestones for each phase to ensure timely and structured implementation.
+
+Data Retrieval & Integration
+	•	Discussed the process for secure trade data retrieval via service ID.
+	•	Established an approach to integrate incremental data sources efficiently.
+	•	Identified dependencies on external teams (Zinc Team, APP teams) for data access.
+
+User Interface & Execution Flow
+	•	Reviewed UI design and workflow for data execution:
+	•	Dropdown selection for desk type.
+	•	Execution button to trigger data retrieval.
+	•	Export options for PDF & Excel reports.
+	•	Assigned Kevin and Young to lead UI implementation and validation.
+
+System Access & Risk Mitigation
+	•	Identified existing access constraints impacting data retrieval.
+	•	Proposed a two-member access policy to mitigate risks and ensure business continuity.
+	•	Discussed long-term plans to automate data extraction and minimize manual dependencies.
+
+Tracking & Agile Collaboration
+	•	Implementing a SharePoint tracker for real-time project progress tracking.
+	•	Scheduling weekly sprint check-ins to address blockers and ensure alignment.
+	•	Consolidating technical documentation in the Automation SharePoint for visibility.
+
+Risk Assessment & Prioritization
+	•	Established criteria for prioritizing risk assessment activities:
+	•	Business impact
+	•	Technical feasibility
+	•	Long-term scalability
+	•	Mark to finalize the risk assessment prioritization strategy ahead of Thursday’s strategy meeting.
+	•	Ensuring alignment with audit teams for compliance and risk mitigation.
