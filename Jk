@@ -1,0 +1,58 @@
+# pip install pymupdf
+import fitz  # PyMuPDF
+
+# Replace with your file path
+pdf_file = r"C:\Users\YourName\Documents\Engagement_QA_format.pdf"
+
+def extract_page_by_blocks(page, column_aware=True):
+    """
+    Extract text by spatial order:
+    - get blocks -> sort by (y, x)
+    - if column_aware: read left column fully, then right column
+    """
+    blocks = page.get_text("blocks")  # list of tuples: (x0, y0, x1, y1, text, block_no, block_type, ...)
+    # Filter out empty texts
+    blocks = [b for b in blocks if b[4] and b[4].strip()]
+
+    if not blocks:
+        return ""
+
+    if column_aware:
+        mid_x = page.rect.width / 2.0
+        left = [b for b in blocks if b[0] < mid_x]
+        right = [b for b in blocks if b[0] >= mid_x]
+        left.sort(key=lambda b: (round(b[1], 1), round(b[0], 1)))   # sort by y0 then x0
+        right.sort(key=lambda b: (round(b[1], 1), round(b[0], 1)))
+        ordered = left + right
+    else:
+        ordered = sorted(blocks, key=lambda b: (round(b[1], 1), round(b[0], 1)))
+
+    # Join block texts
+    lines = []
+    for b in ordered:
+        txt = b[4].rstrip()
+        if txt:
+            lines.append(txt)
+    return "\n".join(lines)
+
+
+# ---- Print all pages, then page 2 specifically ----
+doc = fitz.open(pdf_file)
+
+print("=== All Pages (position-sorted) ===\n")
+all_pages_text = []
+for i, page in enumerate(doc, start=1):
+    page_text = extract_page_by_blocks(page, column_aware=True)
+    all_pages_text.append(f"--- Page {i} ---\n{page_text}")
+    print(f"--- Page {i} ---")
+    print(page_text, "\n")
+
+# Page 2 only (if present)
+if len(doc) >= 2:
+    page2_text = extract_page_by_blocks(doc[1], column_aware=True)
+    print("=== Page 2 Only ===\n")
+    print(page2_text)
+else:
+    print("⚠️ PDF has less than 2 pages.")
+
+doc.close()
