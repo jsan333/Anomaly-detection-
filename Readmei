@@ -1,0 +1,38 @@
+Date: [Insert Date]
+Attendees: [You], Nandini
+
+⸻
+
+🔑 Key Discussion Points
+	1.	Scope of Phase 1
+	•	Focus only on application-level vulnerabilities (Java upgrades, removal of flagged JAR files).
+	•	UNIX vulnerabilities are out of scope for this release but will be addressed in future phases.
+	2.	Current Workflow Overview
+	•	Vulnerabilities detected via RTV/CTV notifications.
+	•	Team receives extracts (Excel sheet) with vulnerability details.
+	•	Each vulnerability has a Vulnerability ID (VID) which is checked in the internal portal (Cyber Insights / Automation Portal).
+	•	Additional tracking/reporting through Tableau dashboards.
+	3.	Prioritization Strategy
+	•	Critical (P1) vulnerabilities are always treated as highest priority.
+	•	High → Medium → Low order is followed.
+	•	Fix dates drive urgency; past-due vulnerabilities must be remediated immediately.
+	4.	Remediation Process Examples
+	•	Java upgrades → Download and apply the supported version, ensure compatibility with application.
+	•	Removal of unused/flagged JAR files → Locate path and delete unnecessary files.
+	•	Other languages (Node.js, Python) and OS-level vulnerabilities fall under different teams’ ownership.
+	5.	Tools & Platforms Used
+	•	Internal Vulnerability Portal → Search by VID for details.
+	•	Tableau Dashboard → Summary view of vulnerabilities.
+	•	Excel extracts shared with application teams.
+	6.	Action Items & Next Steps
+	•	Nandini to provide an updated Excel extract including a new column with remediation steps for already-resolved vulnerabilities.
+	•	You to connect with Bahar and other contacts for backend details on how vulnerabilities are sourced into the portal.
+	•	Focus agent workflow design on application-level remediation steps (Java upgrades & file removals) for Phase 1.
+
+⸻
+
+✅ Highlights:
+	•	Phase 1 = application vulnerabilities only.
+	•	Workflow clarified (Excel → Portal → Tableau → Remediation).
+	•	Criticality determines remediation order.
+	•	Next deliverable: Excel with remediation steps from Nandini.
