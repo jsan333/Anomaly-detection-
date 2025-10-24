@@ -1,0 +1,47 @@
+1. Is this a customized platform built specifically for a particular customer? How productized is this?
+
+The Shire AVR platform is built as a modular, productized framework designed to be customized at deployment for specific enterprise environments.
+	•	The core agentic framework (Analyzer, Patcher, Validator, and Coordinator Agents) is productized and reusable across clients.
+	•	Integrations (e.g., ServiceNow/Jira for ticketing, Cosmos DB/Neo4j for GraphDB, and cloud scanners like Qualys/Tenable) are configurable adapters.
+	•	For RBC, we implemented a custom integration layer to map vulnerabilities (CVEs) to applications, packages, and systems using GraphDB relationships.
+Hence, while the workflow logic and orchestration are reusable, connectors and guardrail thresholds are customized per client.
+
+⸻
+
+2. There was a mention that Discovery data has to be stored in the Storage DB to get agents operating post that. Can Discovery be also done via agents?
+
+Yes — the next iteration supports Discovery as an agentic service.
+	•	The Discovery Agent automatically scans asset inventories, configurations, and CVE reports directly from integrated scanners or cloud APIs.
+	•	The Storage DB (Cosmos DB / GraphDB) acts as a knowledge graph rather than a static store — allowing relationship-driven insights (e.g., CVE → Package → Host → App → Service → Business Line).
+	•	This reduces dependency on manual data staging and enables end-to-end automation from discovery to remediation.
+
+In the current MVP, the Discovery data is loaded once from the existing security scanners. The Discovery Agent is part of Phase 2.
+
+⸻
+
+3. The guardrails – there seem to be a few places where there is human intervention. Can it be decreased?
+
+Yes, the human-in-the-loop (HITL) component is configurable and can be reduced progressively:
+	•	Guardrails ensure risk-validated automation (e.g., validating dependencies before patch deployment).
+	•	Using policy-based AI guardrails, we can automate low-risk remediation (patches with zero dependency impact).
+	•	For critical or multi-system impacts, we maintain optional approver checkpoints in Jira/ServiceNow.
+	•	As the graph intelligence matures, HITL can be reduced by ~70% without compromising safety.
+
+⸻
+
+4. The NETS team is not big/equipped enough to be able to run and maintain – hence expect product-like support.
+
+The AVR platform is being structured as a managed AI service, not a one-off deployment.
+	•	Centralized orchestration on Databricks and Azure Functions minimizes operational overhead.
+	•	Dashboard and alerting modules provide self-serve visibility for the NETS team.
+	•	We plan to include a support runbook and SLA-based managed support model (L2/L3) for ongoing assistance — similar to a product maintenance model.
+	•	Post-MVP, the support can be scaled via a “AVR Ops Portal” that monitors agent performance, patch success rates, and system health.
+
+⸻
+
+5. When can the UI be ready?
+
+The AVR Dashboard UI (built using React + Flask backend) is in development as part of MVP+ (November release).
+	•	The initial version will visualize vulnerability status, patch progress, and agent actions (Analyzer → Patcher → Validator).
+	•	Phase 2 UI (targeted for Q1 2026) will include impact graphs (blast radius visualization from GraphDB) and integrated ticket tracking.
+	•	We can share a preview demo by early November once GraphDB visualization and agent orchestration are connected to the live data pipeline.
