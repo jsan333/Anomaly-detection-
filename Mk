@@ -1,0 +1,36 @@
+Use Case
+	•	Automate retrieval of external security advisories (Red Hat CSAF, GitHub Security Advisories, NVD CVEs).
+	•	Correlate advisories with our internal package & system inventory.
+	•	Identify impacted applications and systems in near real time.
+	•	Provide Security, Engineering, Risk, and Audit with actionable remediation insights.
+
+⸻
+
+Value Proposition
+	•	Faster vulnerability triage → reduces exposure window.
+	•	Automated impact analysis → removes manual data lookup across teams.
+	•	Improved remediation planning → speeds up patch and fix rollouts.
+	•	Consistent audit/compliance evidence → removes manual documentation burden.
+	•	Better visibility for leadership → real-time view into organizational risk posture.
+
+⸻
+
+Current Blocker
+	•	Databricks workspace is deployed in a private network with no outbound internet access.
+	•	Requests to RedHat, GitHub, and NVD are being dropped at the network layer.
+	•	This prevents the pipeline from fetching vulnerability advisories required for analysis.
+
+⸻
+
+Required Change
+	•	Enable secure outbound HTTPS traffic for Databricks via the existing corporate proxy.
+	•	This does not open unrestricted internet access.
+	•	All traffic will continue to flow through existing security inspection and logging controls (Zscaler / Bluecoat / Prisma, etc.).
+
+⸻
+
+Outcome Once Enabled
+	•	CVE → Impact → Remediation workflow can run end-to-end automatically.
+	•	Security and Engineering teams get affected asset lists immediately when new CVEs drop.
+	•	Vulnerability response SLA improves.
+	•	Audit readiness and compliance reporting becomes easier and faster.
