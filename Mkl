@@ -1,0 +1,10 @@
+Tomorrow we are going to demo the end-to-end Shire AVM workflow.
+Shire AVM is a fully automated, agent-driven vulnerability remediation system that orchestrates the complete lifecycle of a CVE — from detection to closure — with full audit-ready transparency.
+
+We will walk through how a vulnerability is ingested from scanners or Jira, how the system extracts environment details, performs dependency and blast-radius analysis using GraphDB, and then generates a structured remediation plan through the planner agent.
+
+We will then demo the pre-checks, the patching agent applying updates via SSH, and how every command is captured as immutable evidence. After that, we’ll show the verification agent running post-patch scans to validate the results, and if it’s an application-based CVE, how the deployment packaging agent rebuilds containers or binaries for Dev → UAT → Prod readiness.
+
+You’ll also see how all logs, plans, and verification artifacts are saved to Blob Storage, how Jira is automatically updated, and how the chat interface gives natural-language control, real-time workflow status, and evidence retrieval.
+Finally, we’ll highlight how monitoring and metrics help track SLA compliance and time-to-remediate.
+Overall, the demo will show a closed-loop, highly scalable, auditable remediation platform that drives consistency, speed, and traceability for engineering, security, and audit teams.”
