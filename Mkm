@@ -1,0 +1,39 @@
+Hi ,
+
+I wanted to share a major enhancement we’ve introduced into the Shire AVM platform that fundamentally strengthens governance, transparency, and operational safety as we scale: the new Plan Review & Validation step.
+
+This feature introduces an explicit, auditable human-in-the-loop approval gate before any remediation action is executed. Once the Planner Agent generates the remediation blueprint (plan.json), Shire now surfaces a “Review, Validate, or Modify” bar directly in the chat interface.
+Users can:
+	•	Examine the full remediation plan
+	•	Request revisions or clarifications
+	•	Validate commands and dependencies
+	•	Provide rejection notes or risk flags
+	•	Explicitly approve the execution
+
+Only after approval does the Patching Agent proceed.
+
+This enhancement directly addresses our need for accountability, clarity, and secure automation, especially as Shire expands toward production-aligned and business-critical systems. It ensures that nothing runs blindly; every change is visible, validated, and intentionally approved.
+
+Why This Is a Step-Function Improvement for Shire
+
+1. Stronger Governance & Risk Control
+Every approval becomes a recorded event with user identity, timestamp, and plan version — providing a clean, audit-ready trail that aligns with RBC’s internal security and compliance expectations.
+
+2. Full Transparency Into Agent Actions
+Users see the exact commands that will be executed, eliminating ambiguity and giving full clarity into what Shire intends to do before it acts.
+
+3. Safety Layer for Automation at Scale
+As Shire begins to manage larger workloads, cross-application dependencies, and production-sensitive hosts, this approval gate serves as a critical safeguard.
+
+4. Unlocks Intelligent Future Capabilities
+The validation feedback becomes structured data that the system can learn from over time:
+	•	Which plans get approved immediately
+	•	Which require changes
+	•	What patterns trigger risk concerns
+	•	Differences across environments
+	•	Preferred remediation sequences
+
+This positions Shire to evolve into a self-optimizing, policy-aligned remediation engine, improving accuracy and reducing manual review effort as adoption grows.
+
+5. Increased Trust & Adoption Across Stakeholders
+By giving security teams, SMEs, and application owners a clear approval checkpoint, we reinforce Shire as a safe and controlled automation framework — which is essential for broad rollout.
